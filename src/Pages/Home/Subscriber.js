@@ -12,7 +12,7 @@ const Subscriber = () => {
               <span className="text-[#D41872]"> Newsletter</span>
             </h1>
             <p className="mt-4 text-gray-800">
-              Be the first to know when our 
+              Be the first to know when our
               <span className="font-medium text-[#026327]"> Promotion</span> is
               going on.
             </p>

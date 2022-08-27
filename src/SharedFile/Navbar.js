@@ -37,7 +37,7 @@ const Navbar = () => {
             <Link className="text-lg font-medium" to="/">Home</Link>
             <Link className="text-lg font-medium" to="/blogs">Blogs</Link>
             <Link className="text-lg font-medium" to="/fruits">Fruits</Link>
-            <Link className="text-lg font-medium" to="/dashBoard">Dashboard</Link>
+            <Link className="text-lg font-medium" to="/inventory">Inventory</Link>
             <Link className="text-lg font-medium" to="/login">Login</Link>
           </ul>
         </div>
@@ -52,7 +52,7 @@ const Navbar = () => {
           <Link className="ml-4 md:text-lg font-bold" to="/">Home</Link>
           <Link className="ml-4 md:text-lg font-bold" to="/blogs">Blogs</Link>
           <Link className="ml-4 md:text-lg font-bold" to="/fruits">Fruits</Link>
-          <Link className="ml-4 md:text-lg font-bold" to="/dashBoard">Dashboard</Link>
+          <Link className="ml-4 md:text-lg font-bold" to="/inventory">Inventory</Link>
           <Link className="ml-4 md:text-lg font-bold" to="/login">Login</Link>
         </ul>
       </div>
