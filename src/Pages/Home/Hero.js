@@ -4,19 +4,25 @@ import { backgroundImg } from "../../Constants/ConstantDB";
 const Hero = () => {
     return (
       <div
-        class="hero h-96"
-        style={{ backgroundImage: `url(${backgroundImg})`, backgroundColor: "green" }}
+        className="hero h-[70vh]"
+        style={{
+          backgroundImage: `url(${backgroundImg})`,
+          backgroundColor: "#f9d423",
+        }}
       >
-        <div class="hero-overlay bg-opacity-60"></div>
-        <div class="hero-content text-center text-neutral-content">
-          <div class="max-w-md">
-            <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-            <p class="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-3xl font-bold">
+              Welcome to Fresh Fruits Warehouse.
+            </h1>
+            <p className="mb-5 text-xl">
+              Fruits are the means by which angiosperms disseminate seeds. Order
+              fruit from Fresh Fruits Warehouse for delivery as quickly as
+              today! Delivered farm to door - we taste and rate all varieties so
+              you only eat the best.
             </p>
-            <button class="btn btn-info">Get Started</button>
+            <button className="btn btn-info text-[#fff]">Order Now</button>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer p-10 bg-neutral text-neutral-content">
       <div>
         <h4 className="text-2xl footer-title">
-          Fresh FruitsWarehouse Ltd
+          Fresh Fruits Warehouse Ltd
         </h4>
         <h4 className="text-xl">
           Copyright &#169; {new Date().getFullYear()} - All right reserved.
