@@ -7,14 +7,14 @@ import Navbar from "./SharedFile/Navbar";
 
 function App() {
   return (
-    <div>
-      <Navbar/>
+    <div className="bg-[#c1c161]">
+      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/" element={<HomePage />} />
       </Routes>
       <Footer />
-      <ToastContainer />;
     </div>
   );
 }
+<ToastContainer />;
 export default App;
