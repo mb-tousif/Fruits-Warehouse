@@ -2,7 +2,7 @@ import React from 'react';
 import useFruits from '../../Hooks/useFruits';
 
 const FruitsCard = () => {
-    const [fruits] = useFruits()
+    const [fruits] = useFruits();
     return (
       <div>
         <p className="text-center text-xl md:text-3xl md:m-4 m-2 text-gray-800">

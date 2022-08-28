@@ -1,4 +1,5 @@
 import React from 'react';
+import Contact from './Contact';
 import FruitsCard from './FruitsCard';
 import Hero from './Hero';
 import StepsToBuy from './StepsToBuy';
@@ -10,6 +11,7 @@ const HomePage = () => {
         <Hero/>
         <FruitsCard/>
         <StepsToBuy/>
+        <Contact/>
         <Subscriber/>   
       </div>
     );
