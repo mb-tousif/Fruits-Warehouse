@@ -9,7 +9,8 @@ const Footer = () => {
       <div>
         <h4 className="text-2xl footer-title">Fresh Fruits Warehouse Ltd</h4>
         <p className="text-xl text-[#0f7837]">
-          Providing Fresh Fruits Since 2020.<br/>
+          Providing Fresh Fruits Since 2020.
+          <br />
           Copyright &#169; {new Date().getFullYear()} - All right reserved.
         </p>
       </div>
