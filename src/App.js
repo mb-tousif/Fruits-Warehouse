@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import BlogsPage from "./Pages/Blogs/BlogsPage";
 import HomePage from "./Pages/Home/HomePage";
 import Fruits from "./Pages/Products/Fruits";
+import Login from "./Pages/Register/Login";
+import Signup from "./Pages/Register/Signup";
 import DataLoader from "./SharedFile/DataLoader";
 import Footer from "./SharedFile/Footer";
 import Navbar from "./SharedFile/Navbar";
@@ -29,6 +31,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/fruits" element={<Fruits />} />
           <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup/>} />
         </Routes>
       )}
       <Footer />
