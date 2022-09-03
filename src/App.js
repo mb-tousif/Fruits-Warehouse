@@ -6,6 +6,7 @@ import BlogsPage from "./Pages/Blogs/BlogsPage";
 import HomePage from "./Pages/Home/HomePage";
 import Fruits from "./Pages/Products/Fruits";
 import Login from "./Pages/Register/Login";
+import ResetPassword from "./Pages/Register/ResetPassword";
 import Signup from "./Pages/Register/Signup";
 import DataLoader from "./SharedFile/DataLoader";
 import Footer from "./SharedFile/Footer";
@@ -32,7 +33,8 @@ function App() {
           <Route path="/fruits" element={<Fruits />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup/>} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/resetPassword" element={<ResetPassword/>} />
         </Routes>
       )}
       <Footer />

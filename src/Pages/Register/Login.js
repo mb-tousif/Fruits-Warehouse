@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GIcon from "../../assets/images/google-icon.svg"
 
 const Login = () => {
   return (
@@ -51,9 +52,9 @@ const Login = () => {
       </form>
       <div className="divider">Or</div>
       <button
-        className="w-full text-gray-800 px-6 py-2.5 bg-lime-500 font-medium text-xl leading-tight rounded shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
+        className="w-full flex justify-center text-gray-800 px-6 py-2.5 bg-lime-500 font-medium text-lg leading-tight rounded shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
       >
-        Continue with Google
+        <img src={GIcon} className="h-6 w-10" alt="Google Icon" /> Google
       </button>
     </div>
   );

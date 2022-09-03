@@ -21,7 +21,6 @@ const Signup = () => {
           <input
             type="email"
             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-[#e8d779] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
-            id="exampleInput125"
             placeholder="Email"
           />
         </div>
@@ -32,7 +31,6 @@ const Signup = () => {
           <input
             type="password"
             className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-[#e8d779] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
-            id="exampleInput126"
             placeholder="Password"
           />
         </div>
