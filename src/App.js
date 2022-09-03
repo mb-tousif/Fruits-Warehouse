@@ -27,8 +27,8 @@ function App() {
       <Navbar />
       {loader ? (
         <DataLoader />
-      ) : (
-        <Routes>
+        ) : (
+          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/fruits" element={<Fruits />} />
           <Route path="/blogs" element={<BlogsPage />} />
@@ -37,11 +37,11 @@ function App() {
           <Route path="/resetPassword" element={<ResetPassword/>} />
         </Routes>
       )}
+      <ToastContainer />
       <Footer />
     </div>
   );
 }
 
-<ToastContainer />;
 
 export default App;

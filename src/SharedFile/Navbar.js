@@ -1,8 +1,15 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase.init";
 
 const Navbar = () => {
-
+  const [user] = useAuthState(auth);
+  const handleSignOut = () => {
+    signOut(auth);
+    // localStorage.removeItem("accessToken");
+  };
   return (
     <div
       className="navbar"
@@ -34,11 +41,38 @@ const Navbar = () => {
             }}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
           >
-            <Link className="text-lg font-medium" to="/">Home</Link>
-            <Link className="text-lg font-medium" to="/blogs">Blogs</Link>
-            <Link className="text-lg font-medium" to="/fruits">Fruits</Link>
-            <Link className="text-lg font-medium" to="/inventory">Inventory</Link>
-            <Link className="text-lg font-medium" to="/login">Login</Link>
+            <Link className="text-lg font-medium" to="/">
+              Home
+            </Link>
+            <Link className="text-lg font-medium" to="/blogs">
+              Blogs
+            </Link>
+            <Link className="text-lg font-medium" to="/fruits">
+              Fruits
+            </Link>
+            <Link className="text-lg font-medium" to="/inventory">
+              Inventory
+            </Link>
+            {user ? (
+              <Link
+                onClick={handleSignOut}
+                className="text-lg font-medium mb-2"
+                to="/"
+              >
+                Log Out
+              </Link>
+            ) : (
+              <Link className="text-lg font-medium" to="/login">
+                Login
+              </Link>
+            )}
+            {user && (
+              <div className="avatar">
+                <div className="w-12 rounded-full">
+                  <img src={user?.photoURL} alt="Avatar" />
+                </div>
+              </div>
+            )}
           </ul>
         </div>
         <div className="flex my-auto">
@@ -49,11 +83,38 @@ const Navbar = () => {
       </div>
       <div className="navbar-center mx-auto hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <Link className="ml-4 md:text-lg font-bold" to="/">Home</Link>
-          <Link className="ml-4 md:text-lg font-bold" to="/blogs">Blogs</Link>
-          <Link className="ml-4 md:text-lg font-bold" to="/fruits">Fruits</Link>
-          <Link className="ml-4 md:text-lg font-bold" to="/inventory">Inventory</Link>
-          <Link className="ml-4 md:text-lg font-bold" to="/login">Login</Link>
+          <Link className="ml-4 md:text-lg font-bold" to="/">
+            Home
+          </Link>
+          <Link className="ml-4 md:text-lg font-bold" to="/blogs">
+            Blogs
+          </Link>
+          <Link className="ml-4 md:text-lg font-bold" to="/fruits">
+            Fruits
+          </Link>
+          <Link className="ml-4 md:text-lg font-bold" to="/inventory">
+            Inventory
+          </Link>
+          {user ? (
+            <Link
+              onClick={handleSignOut}
+              className="ml-4 md:text-lg font-bold"
+              to="/"
+            >
+              Log Out
+            </Link>
+          ) : (
+            <Link className="ml-4 md:text-lg font-bold" to="/login">
+              Login
+            </Link>
+          )}
+          {user && (
+            <div className="avatar ml-4 flex">
+              <div className="w-12 rounded-full flex">
+                <img src={user?.photoURL} alt="Avatar" />
+              </div>
+            </div>
+          )}
         </ul>
       </div>
     </div>
