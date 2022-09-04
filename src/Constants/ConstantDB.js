@@ -18,10 +18,6 @@ export const bannerImage = [
     id: 4,
     img: "https://i.ibb.co/yBWLJ8D/banner-4.png",
   },
-  {
-    id: 5,
-    img: "https://i.ibb.co/54J2zNn/banner-5.jpg",
-  },
 ];
 
 export const navLinks = [

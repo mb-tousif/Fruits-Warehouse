@@ -1,0 +1,9 @@
+.BackgroundStyle {
+    background-image: url(../../assets/Banner/banner-5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+    background-color: hsla(0, 0%, 0%, 0.594);
+    background-blend-mode: multiply;
+}

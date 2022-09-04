@@ -3,7 +3,7 @@ import { Bars } from "react-loader-spinner";
 
 const DataLoader = () => {
     return (
-      <div className="flex justify-center h-screen">
+      <div className="flex justify-center h-3/4">
         <div className="mx-auto my-auto">
           <Bars
             height="150"

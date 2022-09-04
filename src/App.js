@@ -11,6 +11,8 @@ import Signup from "./Pages/Register/Signup";
 import DataLoader from "./SharedFile/DataLoader";
 import Footer from "./SharedFile/Footer";
 import Navbar from "./SharedFile/Navbar";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -43,5 +45,5 @@ function App() {
   );
 }
 
-
+AOS.init();
 export default App;
