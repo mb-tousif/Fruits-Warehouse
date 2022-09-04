@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useCreateUserWithEmailAndPassword,useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword,useSendEmailVerification,useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import { useForm } from "react-hook-form";
@@ -9,24 +9,26 @@ import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 
 const Signup = () => {
    const { register, handleSubmit, formState: { errors }} = useForm();
+   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
    const [updateProfile, updating] = useUpdateProfile(auth);
    const [showPassword, setShowPassword] = useState(false);
    const navigate = useNavigate();
    const [createUserWithEmailAndPassword, loading] = useCreateUserWithEmailAndPassword(auth);
 
-   if (loading || updating) {
-     return <DataLoader/>
+   if (loading || updating || sending) {
+     return <DataLoader />;
    }
 
    const onSubmit = async (data) => {
      await createUserWithEmailAndPassword(data.email, data.password);
      await updateProfile({ displayName: data.name });
+     await sendEmailVerification();
      navigate("/fruits")
      toast.success("User Added!!");
    };
 
   return (
-    <div className="mt-4 mb-4 block p-6 mx-auto my-auto rounded-lg shadow-lg bg-[#026c2b] max-w-md">
+    <div className="mt-4 mb-4 block p-6 mx-auto my-auto rounded-lg shadow-lg bg-[#13a94c] max-w-md">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group mb-6">
           <label className="form-label inline-block mb-2 text-gray-700">
@@ -147,7 +149,7 @@ const Signup = () => {
         )}
         <button
           type="submit"
-          className="w-full text-gray-800 px-6 py-2.5 bg-lime-500 font-medium text-xl leading-tight rounded shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
+          className="w-full bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 px-6 py-2.5 font-medium text-xl leading-tight rounded shadow-md hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
         >
           Sign up
         </button>

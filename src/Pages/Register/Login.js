@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import GIcon from "../../assets/images/google-icon.svg"
+import GIcon from "../../assets/images/google-icon.svg";
 import { auth } from "../../firebase.init";
 import DataLoader from "../../SharedFile/DataLoader";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 
 const Login = () => {
-  const { register, handleSubmit, formState: { errors }} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,8 +29,8 @@ const Login = () => {
     return [toast.error("User not found, please Sign up"), navigate("/signup")];
   }
 
-  if (loading || googleLoading ) {
-    return <DataLoader/> ;
+  if (loading || googleLoading) {
+    return <DataLoader />;
   }
 
   if (user || googleUser) {
@@ -153,7 +160,7 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full text-gray-800 px-6 py-2.5 bg-lime-500 font-medium text-xl leading-tight rounded shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
+          className="w-full bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 px-6 py-2.5 font-medium text-xl leading-tight rounded shadow-md hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
         >
           Login
         </button>
@@ -171,7 +178,7 @@ const Login = () => {
       <button
         type="button"
         onClick={() => signInWithGoogle()}
-        className="w-full flex justify-center text-gray-800 px-6 py-2.5 bg-lime-500 font-medium text-lg leading-tight rounded shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
+        className="w-full flex justify-center bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 px-6 py-2.5 font-medium text-lg leading-tight rounded shadow-md hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
       >
         <img src={GIcon} className="h-6 w-10" alt="Google Icon" /> Google
       </button>
