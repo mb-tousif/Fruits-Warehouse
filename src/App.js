@@ -13,6 +13,7 @@ import Footer from "./SharedFile/Footer";
 import Navbar from "./SharedFile/Navbar";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import RequireAuth from "./SharedFile/RequireAuth";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -29,14 +30,29 @@ function App() {
       <Navbar />
       {loader ? (
         <DataLoader />
-        ) : (
-          <Routes>
+      ) : (
+        <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/fruits" element={<Fruits />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/resetPassword" element={<ResetPassword/>} />
+          {/* <Route
+            path="/inventory"
+            element={
+              <RequireAuth>
+                
+              </RequireAuth>
+            }
+          /> */}
+          <Route
+            path="/fruits"
+            element={
+              <RequireAuth>
+                <Fruits />
+              </RequireAuth>
+            }
+          />
+          <Route path="/resetPassword" element={<ResetPassword />} />
         </Routes>
       )}
       <ToastContainer />

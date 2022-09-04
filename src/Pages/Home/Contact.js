@@ -22,7 +22,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
           </div>
@@ -35,7 +35,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
           </div>
@@ -47,12 +47,12 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               ></textarea>
             </div>
           </div>
           <div className="p-2 w-full">
-            <button className="flex mx-auto bg-[#50cc7f] hover:bg-[#FFF800] text-[#44107A] border-0 py-2 px-8 transition ease-in-out focus:outline-none rounded text-lg">
+            <button className="flex mx-auto bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 border-0 py-2 px-8 transition ease-in-out focus:outline-none rounded text-lg">
               Button
             </button>
           </div>

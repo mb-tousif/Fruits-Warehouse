@@ -23,7 +23,7 @@ const Subscriber = () => {
                 className="px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-[#0fd850] focus:outline-none"
                 placeholder="Email Address"
               />
-              <button className="w-full px-6 py-2.5 transition ease-in-out text-sm font-medium rounded-lg lg:w-auto lg:mx-4 bg-[#50cc7f] hover:bg-[#FFF800] text-[#44107A]">
+              <button className="w-full px-6 py-2.5 transition ease-in-out text-sm font-medium rounded-lg lg:w-auto lg:mx-4 bg-[#1c3a13] hover:bg-[#678f02] text-gray-50">
                 Subscribe
               </button>
             </div>

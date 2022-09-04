@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -6,9 +6,11 @@ import { toast } from "react-toastify";
 import GIcon from "../../assets/images/google-icon.svg"
 import { auth } from "../../firebase.init";
 import DataLoader from "../../SharedFile/DataLoader";
+import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }} = useForm();
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -27,7 +29,7 @@ const Login = () => {
   if (user || googleUser) {
     return [
       toast.success("Login Success!"),
-      navigate(from, { replace: true }) || navigate("/inventory"),
+      navigate(from, { replace: true }) || navigate("/fruits"),
     ];
   }
 
@@ -66,37 +68,81 @@ const Login = () => {
             <p className="text-gray-50 text-center">{errors.email.message}</p>
           )}
         </div>
-        <div className="form-group mb-6">
-          <label className="form-label inline-block mb-2 text-gray-700">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            {...register("password", {
-              minLength: {
-                value: 6,
-                message: "Password min-length six characters",
-              },
-              required: {
-                value: true,
-                message: "Password is required",
-              },
-            })}
-            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-[#e8d779] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
-            placeholder="Password"
-          />
-          {errors.password?.type === "minLength" && (
-            <p className="text-gray-50 text-center">
-              <small>{errors.password.message}</small>
-            </p>
-          )}
-          {errors.password?.type === "required" && (
-            <p className="text-gray-50 text-center">
-              {errors.password.message}
-            </p>
-          )}
-        </div>
+        {showPassword ? (
+          <div className="relative form-group mb-6">
+            <label className="form-label inline-block mb-2 text-gray-700">
+              Password
+            </label>
+            <input
+              type="text"
+              name="password"
+              {...register("password", {
+                minLength: {
+                  value: 6,
+                  message: "Password min-length six characters",
+                },
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              })}
+              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-[#e8d779] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+              placeholder="Password"
+            />
+            {errors.password?.type === "minLength" && (
+              <p className="text-gray-50 text-center">
+                {errors.password.message}
+              </p>
+            )}
+            {errors.password?.type === "required" && (
+              <p className="text-gray-50 text-center">
+                {errors.password.message}
+              </p>
+            )}
+            <MdOutlineVisibility
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute text-slate-700 right-0 top-[37px] mr-4 cursor-pointer"
+              size={28}
+            />
+          </div>
+        ) : (
+          <div className="relative form-group mb-6">
+            <label className="form-label inline-block mb-2 text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              {...register("password", {
+                minLength: {
+                  value: 6,
+                  message: "Password min-length six characters",
+                },
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              })}
+              className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-[#e8d779] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+              placeholder="Password"
+            />
+            {errors.password?.type === "minLength" && (
+              <p className="text-gray-50 text-center">
+                {errors.password.message}
+              </p>
+            )}
+            {errors.password?.type === "required" && (
+              <p className="text-gray-50 text-center">
+                {errors.password.message}
+              </p>
+            )}
+            <MdOutlineVisibilityOff
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute text-slate-700 right-0 top-[37px] mr-4 cursor-pointer"
+              size={28}
+            />
+          </div>
+        )}
         <div className="flex justify-between items-center mb-6">
           <Link
             to="/resetPassword"
