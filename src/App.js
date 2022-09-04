@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BlogsPage from "./Pages/Blogs/BlogsPage";
 import HomePage from "./Pages/Home/HomePage";
-import Fruits from "./Pages/Products/Fruits";
 import Login from "./Pages/Register/Login";
 import ResetPassword from "./Pages/Register/ResetPassword";
 import Signup from "./Pages/Register/Signup";
@@ -14,6 +13,7 @@ import Navbar from "./SharedFile/Navbar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import RequireAuth from "./SharedFile/RequireAuth";
+import Inventory from "./Pages/Inventory/Inventory";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -36,19 +36,11 @@ function App() {
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          {/* <Route
+          <Route
             path="/inventory"
             element={
               <RequireAuth>
-                
-              </RequireAuth>
-            }
-          /> */}
-          <Route
-            path="/fruits"
-            element={
-              <RequireAuth>
-                <Fruits />
+                <Inventory/>
               </RequireAuth>
             }
           />

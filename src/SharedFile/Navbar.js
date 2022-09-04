@@ -48,9 +48,6 @@ const Navbar = () => {
             <Link className="text-lg font-medium" to="/blogs">
               Blogs
             </Link>
-            <Link className="text-lg font-medium" to="/fruits">
-              Fruits
-            </Link>
             <Link className="text-lg font-medium" to="/inventory">
               Inventory
             </Link>
@@ -93,9 +90,6 @@ const Navbar = () => {
           </Link>
           <Link className="ml-4 md:text-lg font-bold" to="/blogs">
             Blogs
-          </Link>
-          <Link className="ml-4 md:text-lg font-bold" to="/fruits">
-            Fruits
           </Link>
           <Link className="ml-4 md:text-lg font-bold" to="/inventory">
             Inventory
