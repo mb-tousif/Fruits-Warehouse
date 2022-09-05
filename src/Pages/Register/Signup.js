@@ -23,7 +23,7 @@ const Signup = () => {
      await createUserWithEmailAndPassword(data.email, data.password);
      await updateProfile({ displayName: data.name });
      await sendEmailVerification();
-     navigate("/fruits")
+     navigate("/inventory")
      toast.success("User Added!!");
    };
 

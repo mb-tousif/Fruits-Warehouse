@@ -14,6 +14,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import RequireAuth from "./SharedFile/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import UpdateFruit from "./Pages/UpdateFruit/UpdateFruit";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -40,9 +42,23 @@ function App() {
             path="/inventory"
             element={
               <RequireAuth>
-                <Inventory/>
+                <Inventory />
               </RequireAuth>
             }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/fruit/:id"
+            element={<RequireAuth>
+              <UpdateFruit/>
+            </RequireAuth>}
           />
           <Route path="/resetPassword" element={<ResetPassword />} />
         </Routes>

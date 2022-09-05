@@ -36,7 +36,7 @@ const Login = () => {
   if (user || googleUser) {
     return [
       toast.success("Login Success!"),
-      navigate(from, { replace: true }) || navigate("/fruits"),
+      navigate(from, { replace: true }) || navigate("/inventory"),
     ];
   }
 

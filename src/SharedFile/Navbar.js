@@ -51,6 +51,9 @@ const Navbar = () => {
             <Link className="text-lg font-medium" to="/inventory">
               Inventory
             </Link>
+            <Link className="text-lg font-medium" to="/dashboard">
+              Dashboard
+            </Link>
             {user ? (
               <Link
                 onClick={handleSignOut}
@@ -93,6 +96,9 @@ const Navbar = () => {
           </Link>
           <Link className="ml-4 md:text-lg font-bold" to="/inventory">
             Inventory
+          </Link>
+          <Link className="ml-4 md:text-lg font-bold" to="/dashboard">
+            Dashboard
           </Link>
           {user ? (
             <Link

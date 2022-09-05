@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useFruits from '../../Hooks/useFruits';
 
 const Inventory = () => {
   const [fruits] = useFruits();
+  const navigate = useNavigate();
+  const handleUpdate = (id) => {
+    navigate(`/fruit/${id}`);
+  };
   return (
     <div className="mb-3">
       <p className="text-center text-xl md:text-3xl md:m-4 m-2 text-gray-800">
@@ -28,7 +33,10 @@ const Inventory = () => {
               <p>Quantity: {fruit.quantity}</p>
               <p>Supplier: {fruit.supplier}</p>
               <div className="card-actions justify-end">
-                <button className="w-full px-6 py-2.5 hover:bg-[#1c3a13] bg-[#06582096] rounded-2xl">
+                <button
+                  onClick={() => handleUpdate(fruit._id)}
+                  className="w-full px-6 py-2.5 hover:bg-[#1c3a13] bg-[#06582096] rounded-2xl"
+                >
                   Update Now
                 </button>
               </div>
