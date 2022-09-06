@@ -66,7 +66,7 @@ const UpdateFruit = () => {
             </div>
             <button className="inline-flex hover:bg-[#1c3a13] bg-[#06582096] py-2 px-6 focus:outline-none rounded text-lg">
               <AiOutlinePlusCircle className="text-gray-50 mr-2 mt-1.5" />
-              Quantity
+              Restock
             </button>
           </div>
         </div>

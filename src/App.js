@@ -16,6 +16,12 @@ import RequireAuth from "./SharedFile/RequireAuth";
 import Inventory from "./Pages/Inventory/Inventory";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import UpdateFruit from "./Pages/UpdateFruit/UpdateFruit";
+import SalesReport from "./Pages/Dashboard/SalesReport";
+import AddFruit from "./Pages/Dashboard/AddFruit";
+import ManageInventory from "./Pages/Dashboard/ManageInventory";
+import Reviews from "./Pages/Dashboard/Reviews";
+import PendingTasks from "./Pages/Dashboard/PendingTasks";
+import AllUsers from "./Pages/Dashboard/AllUsers";
 
 function App() {
   const [loader, setLoader] = useState(false);
@@ -47,19 +53,28 @@ function App() {
             }
           />
           <Route
+            path="/fruit/:id"
+            element={
+              <RequireAuth>
+                <UpdateFruit />
+              </RequireAuth>
+            }
+          />
+          <Route
             path="/dashboard"
             element={
               <RequireAuth>
                 <Dashboard />
               </RequireAuth>
             }
-          />
-          <Route
-            path="/fruit/:id"
-            element={<RequireAuth>
-              <UpdateFruit/>
-            </RequireAuth>}
-          />
+          >
+            <Route index element={<SalesReport />} />
+            <Route path="addFruit" element={<AddFruit />} />
+            <Route path="manageInventory" element={<ManageInventory />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="pendingTask" element={<PendingTasks />} />
+            <Route path="allUsers" element={<AllUsers />} />
+          </Route>
           <Route path="/resetPassword" element={<ResetPassword />} />
         </Routes>
       )}

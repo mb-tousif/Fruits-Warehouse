@@ -24,7 +24,7 @@ const Signup = () => {
      await updateProfile({ displayName: data.name });
      await sendEmailVerification();
      navigate("/inventory")
-     toast.success("User Added!!");
+     toast.success("User Added and Please verify your email Address!!");
    };
 
   return (

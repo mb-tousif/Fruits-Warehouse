@@ -1,13 +1,23 @@
-import { sendPasswordResetEmail } from 'firebase/auth';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { auth } from '../../firebase.init';
+import DataLoader from '../../SharedFile/DataLoader';
 
 const ResetPassword = () => {
   const { register, handleSubmit, formState: { errors }} = useForm();
+  const [sendPasswordResetEmail, sending] =
+    useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
-  const onSubmit = async (auth, data) => {
-    await sendPasswordResetEmail(auth, data.email);
+
+  if(sending){
+    return <DataLoader/>
+  }
+  const onSubmit = async ( data) => {
+    await sendPasswordResetEmail( data.email);
+    toast.success("Password reset success, please check your email inbox/spam!")
     navigate("/login")
   }
     return (
