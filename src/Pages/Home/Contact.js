@@ -7,7 +7,7 @@ const Contact = () => {
         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
           Contact Us
         </h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+        <p className="text-gray-900 lg:w-2/3 mx-auto leading-relaxed text-base">
           Share your thought with us.
         </p>
       </div>
@@ -28,7 +28,10 @@ const Contact = () => {
           </div>
           <div className="p-2 w-1/2">
             <div className="relative">
-              <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+              <label
+                htmlFor="email"
+                className="leading-7 text-sm text-gray-600"
+              >
                 Email
               </label>
               <input
@@ -41,7 +44,10 @@ const Contact = () => {
           </div>
           <div className="p-2 w-full">
             <div className="relative">
-              <label htmlFor="message" className="leading-7 text-sm text-gray-600">
+              <label
+                htmlFor="message"
+                className="leading-7 text-sm text-gray-600"
+              >
                 Message
               </label>
               <textarea
