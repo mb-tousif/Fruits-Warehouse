@@ -8,20 +8,80 @@ const UpdateFruit = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const { name, img, description, price, quantity, supplier, sold } = item;
+  // const [newQuantity, setNewQuantity] = useState(quantity);
   const [loader, setLoader] = useState(false);
 
+  const url = `https://fruits-warehouse-server.vercel.app/fruit/${id}`;
   useEffect(() => {
     setLoader(true);
-    const url = `https://fruits-warehouse-server.vercel.app/fruit/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
     setLoader(false);
-  }, [id, setItem]);
+  }, [id, setItem, url]);
 
   if (loader) {
     return <DataLoader />;
   }
+
+  // //* =========== deliver funcion =====================
+  // const handleDeliver = () => {
+  //   const newQuantity = Number(quantity) - 1;
+  //   console.log(newQuantity);
+  //   const data = { quantity: newQuantity };
+  //   console.log(data);
+  //   //* send data to the server
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("success", data);
+  //       //* load updated data
+  //       setLoader(true);
+  //       fetch(url)
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           setItem(data);
+  //           setLoader(false);
+  //         });
+  //     });
+  // };
+
+  // //* =============== restock function ================
+  // const handleAdd = (e) => {
+  //   e.preventDefault();
+  //   const number = e.target.number.value;
+  //   console.log(number);
+  //   const newQuantity = Number(quantity) + Number(number);
+  //   const data = { quantity: newQuantity };
+  //   console.log(data);
+  //   //* send data to the server
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("success", data);
+  //       e.target.reset();
+  //       //* load updated data
+  //       setLoader(true);
+  //       fetch(url)
+  //         .then((res) => res.json())
+  //         .then((data) => {
+  //           setItem(data);
+  //           setLoader(false);
+  //         });
+  //     });
+  // };
 
   return (
     <section className="text-gray-50 md:w-2/3 mx-auto md:p-2 body-font">
@@ -53,7 +113,11 @@ const UpdateFruit = () => {
           <p className="text-lg flex text-justify mt-2 text-gray-50 mb-2 w-full">
             Fruits Sold:- <GiWeight className="ml-2 text-2xl mr-2" /> {sold}
           </p>
-          <button className="w-full md:w-3/5  px-6 py-2.5 hover:bg-[#1c3a13] bg-[#06582096] md:text-lg rounded-2xl">
+          <button
+            disabled={quantity < 1}
+            // onClick={handleDeliver}
+            className="w-full md:w-3/5  px-6 py-2.5 hover:bg-[#1c3a13] bg-[#06582096] md:text-lg rounded-2xl"
+          >
             Delivered
           </button>
           <div className="flex text-gray-50"></div>
@@ -61,10 +125,13 @@ const UpdateFruit = () => {
             <div className="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left">
               <input
                 type="number"
+                name="number"
                 className="w-full bg-[#06582096] rounded bg-opacity-40 focus:ring-2 hover:bg-[#1c3a13] focus:border-[#06582096] text-center outline-none text-gray-100 py-1 px-3 leading-9 transition-colors duration-200 ease-in-out"
               />
             </div>
-            <button className="inline-flex hover:bg-[#1c3a13] bg-[#06582096] py-2 px-6 focus:outline-none rounded text-lg">
+            <button 
+            // onClick={handleAdd} 
+            className="inline-flex hover:bg-[#1c3a13] bg-[#06582096] py-2 px-6 focus:outline-none rounded text-lg">
               <AiOutlinePlusCircle className="text-gray-50 mr-2 mt-1.5" />
               Restock
             </button>
