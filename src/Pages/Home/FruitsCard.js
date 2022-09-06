@@ -43,9 +43,9 @@ const FruitsCard = () => {
           ))
           .slice(0, 6)}
       </div>
-      <div className="w-full flex p-2">
+      <div className="w-full flex mt-2 p-2">
         <button
-          onClick={() => navigate("/inventory")}
+          onClick={() => navigate("/dashboard/manageInventory")}
           type="button"
           data-aos="fade-up"
           data-aos-easing="linear"
