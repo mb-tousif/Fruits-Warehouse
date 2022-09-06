@@ -4,10 +4,10 @@ import { backgroundImg } from "../../Constants/ConstantDB";
 const Hero = () => {
   return (
     <div
-      className="card lg:card-side m-3 bg-[linear-gradient(180 deg, #0fd850 0%, #f9f047 100%)] shadow-xl"
+      className="card lg:card-side m-3 shadow-xl"
       style={{
-        backgroundImage: `linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%)`,
-      }}
+       backgroundImage: `linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%)`,
+      }} 
     >
       <figure>
         <img src={backgroundImg} alt="Album" />
