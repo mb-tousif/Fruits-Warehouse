@@ -28,9 +28,9 @@ const UpdateFruit = () => {
   const handleDeliver = (e) => {
     e.preventDefault();
     const newQuantity = Number(quantity) - 1;
-    console.log(newQuantity);
+    // console.log(newQuantity);
     const data = { quantity: newQuantity };
-    console.log(data);
+    // console.log(data);
     //* send data to the server
     fetch(url, {
       method: "PUT",
