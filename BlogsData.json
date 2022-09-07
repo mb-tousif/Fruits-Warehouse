@@ -1,0 +1,18 @@
+[
+  {
+    "question": "What is the difference between Javascript and Node.js?",
+    "answer": "Javascript is a high level interpreted programming language. Node.js is a asynchronous event driven Javascript runtime that runs outside of a browser. Although it used the V8 engine from Google Chrome, it can run on server side. Javascript normally runs on browser engines and mostly used in client side. Node.js can be run only on V8 engine, where Javascript can be run on any browser that has proper engine to run Javascript like Chakra, SpiderMonkery. "
+  },
+  {
+    "question": "When should you use nodejs and when should you use mongodb?",
+    "answer": "Node.js is a Javascript runtime which runs on server side. It is used to handle request from client side, process the request and send the response to the client again. On the other hand, MongoDb is a noSQL database that store data, easy to scale and fast to serve data. So, If I need to store & access data, I'll use mongoDb, to store and access data, I'll use node.js to handle that process."
+  },
+  {
+    "question": "What is the differences between sql and nosql databases?",
+    "answer": "SQL database or structured query language database are rational and the data stored have pre-defined schema to store. That's why its not flexible rather strict. SQL database uses table, and there can be multiple tables to store data and they need to joined together when accessing a particular data. On the other hand, noSQL database are flexible and store data as documents like JSON format. It's faster to access data and scale. For structured data, sql database is more suitable. noSQL database are suitable for both structured or unstructured data. For developers, noSQL database is more easy to use than SQL database."
+  },
+  {
+    "question": "What is the purpose of jwt and how does it work?",
+    "answer": "JWT or JSON Web Token is used to secure data transfer between client and server. First, the server generates a token using special and unique secret key + user data based on client side user request . Then the token is sent to the client site. If the client want to access any data that is secured by JWT authentication on the server, client side needs to send that token along with the request and signature. Then, upon receiving these, server side will validate that token with the user data and verify who is requesting these data. If everything validates, server will send that data, if not, server will reject that request"
+  }
+]

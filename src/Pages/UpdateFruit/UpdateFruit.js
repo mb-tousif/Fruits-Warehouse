@@ -11,7 +11,7 @@ const UpdateFruit = () => {
   const [loader, setLoader] = useState(false);
   const [number, setNumber] = useState("")
 
-  const url = `https://fruits-warehouse-server.vercel.app/fruit/${id}`;
+  const url = `https://fruits-warehouse-server.vercel.app/api/fruit/${id}`;
   useEffect(() => {
     setLoader(true);
     fetch(url)
@@ -115,7 +115,6 @@ const UpdateFruit = () => {
             Fruits Sold:- <GiWeight className="ml-2 text-2xl mr-2" /> {sold}
           </p>
           <button
-            disabled={quantity < 1}
             onClick={handleDeliver}
             className="w-full md:w-3/5  px-6 py-2.5 hover:bg-[#1c3a13] bg-[#06582096] md:text-lg rounded-2xl"
           >
