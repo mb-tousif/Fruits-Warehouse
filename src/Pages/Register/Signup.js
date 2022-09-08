@@ -1,32 +1,37 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useCreateUserWithEmailAndPassword,useSendEmailVerification,useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword,useSendEmailVerification,useSignInWithGoogle,useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import DataLoader from "../../SharedFile/DataLoader";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
+import GIcon from "../../assets/images/google-icon.svg";
+import useToken from "../../Hooks/useToken";
 
 const Signup = () => {
-   const { register, handleSubmit, formState: { errors }} = useForm();
-   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
-   const [updateProfile, updating] = useUpdateProfile(auth);
-   const [showPassword, setShowPassword] = useState(false);
-   const navigate = useNavigate();
-   const [createUserWithEmailAndPassword, loading] = useCreateUserWithEmailAndPassword(auth);
+ const { register, handleSubmit, formState: { errors }} = useForm();
+ const [sendEmailVerification, sending] = useSendEmailVerification(auth);
+ const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
+ const [updateProfile, updating] = useUpdateProfile(auth);
+ const [showPassword, setShowPassword] = useState(false);
+ const navigate = useNavigate();
+ const [createUserWithEmailAndPassword, user, loading] =
+   useCreateUserWithEmailAndPassword(auth);
 
-   if (loading || updating || sending) {
-     return <DataLoader />;
-   }
-
-   const onSubmit = async (data) => {
-     await createUserWithEmailAndPassword(data.email, data.password);
-     await updateProfile({ displayName: data.name });
-     await sendEmailVerification();
-     navigate("/inventory")
-     toast.success("User Added and Please verify your email Address!!");
-   };
-
+  const [token] = useToken(user || googleUser)
+  
+  if (loading || updating || sending || googleLoading) {
+    return <DataLoader />
+  }
+  
+ const onSubmit = async (data) => {
+   await createUserWithEmailAndPassword(data.email, data.password);
+   await updateProfile({ displayName: data.name });
+   await sendEmailVerification();
+   navigate("/inventory")
+   toast.success("User Added and Please verify your email Address!!");
+ };
   return (
     <div className="mt-4 mb-4 block p-6 mx-auto my-auto rounded-lg shadow-lg bg-[#13a94c] max-w-md">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -154,6 +159,14 @@ const Signup = () => {
           Sign up
         </button>
       </form>
+      <div className="divider">Or</div>
+      <button
+        type="button"
+        onClick={() => signInWithGoogle()}
+        className="w-full flex justify-center bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 px-6 py-2.5 font-medium text-lg leading-tight rounded shadow-md hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-lime-900 active:shadow-lg transition duration-150 ease-in-out"
+      >
+        <img src={GIcon} className="h-6 w-10" alt="Google Icon" /> Google
+      </button>
     </div>
   );
 };
