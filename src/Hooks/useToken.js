@@ -19,6 +19,9 @@ const useToken = (user, googleUser) => {
           .then((res) => res.json())
           .then((data) => {
             console.log("data from token", data);
+            const accessToken = data.accessToken;
+            localStorage.setItem("AccessToken", accessToken);
+            setToken(accessToken)
           });
       }
     }, [user]);

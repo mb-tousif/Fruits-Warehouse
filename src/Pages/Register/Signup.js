@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import { useCreateUserWithEmailAndPassword,useSendEmailVerification,useSignInWithGoogle,useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from "react-router-dom";
@@ -25,11 +25,13 @@ const Signup = () => {
     return <DataLoader />
   }
   
+  if(token){
+    navigate("/inventory")
+  }
  const onSubmit = async (data) => {
    await createUserWithEmailAndPassword(data.email, data.password);
    await updateProfile({ displayName: data.name });
    await sendEmailVerification();
-   navigate("/inventory")
    toast.success("User Added and Please verify your email Address!!");
  };
   return (
