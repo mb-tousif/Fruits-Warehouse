@@ -21,7 +21,7 @@ const useToken = (user, googleUser) => {
             console.log("data from token", data);
           });
       }
-    }, [user, googleUser]);
+    }, [user]);
     return [token]
 };
 
