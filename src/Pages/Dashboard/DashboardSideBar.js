@@ -6,7 +6,7 @@ const DashboardSideBar = () => {
     <div className="menu flex flex-col space-y-2">
       <Link
         to="/dashboard"
-        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out"
+        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:text-base rounded-md transition duration-150 ease-in-out"
       >
         <svg
           className="w-6 h-6 fill-current inline-block"
@@ -20,7 +20,7 @@ const DashboardSideBar = () => {
       </Link>
       <Link
         to="/dashboard/addFruit"
-        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
       >
         <svg
           className="w-6 h-6 fill-current inline-block"
@@ -34,7 +34,7 @@ const DashboardSideBar = () => {
       </Link>
       <Link
         to="/dashboard/manageInventory"
-        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
       >
         <svg
           className="w-6 h-6 fill-current inline-block"
@@ -53,7 +53,7 @@ const DashboardSideBar = () => {
       </Link>
       <Link
         to="/dashboard/reviews"
-        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
       >
         <svg
           className="w-6 h-6 fill-current inline-block"
@@ -68,7 +68,7 @@ const DashboardSideBar = () => {
       </Link>
       <Link
         to="/dashboard/pendingTask"
-        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
       >
         <svg
           className="w-6 h-6 fill-current inline-block"
@@ -86,7 +86,7 @@ const DashboardSideBar = () => {
       </Link>
       <Link
         to="/dashboard/allUsers"
-        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-teal-500 hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
+        className="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-[#1c3a13] hover:text-white hover:scale-105 rounded-md transition duration-150 ease-in-out"
       >
         <svg
           className="w-6 h-6 fill-current inline-block"

@@ -1,9 +1,9 @@
 import React from "react";
 import useUser from "../../Hooks/useUser";
+import avatarPic from "../../assets/images/avatar.png";
 
 const AllUsers = () => {
   const [userDetail] = useUser();
-  const avatarPic = "https://pbs.twimg.com/profile_images/1467997254929854470/mDYbXoVl_400x400.jpg"
 
   return (
     <section className="text-gray-600 body-font">
@@ -46,7 +46,7 @@ const AllUsers = () => {
                     </div>
                   </td>
                   <td className="px-4 py-3">{userData.email}</td>
-                  <td className="px-4 py-3">{userData.role || "user"}</td>
+                  <td className="px-4 py-3">{userData.role}</td>
                 </tr>
               ))}
             </tbody>
