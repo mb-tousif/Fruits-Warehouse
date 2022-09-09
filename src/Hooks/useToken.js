@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
-const useToken = (user, googleUser) => {
+const useToken = (user) => {
     const [token, setToken] = useState("");
 
     useEffect(() => {
       const email = user?.user?.email
-      const currentUser = { email: email };
+      const img = user?.user?.photoURL
+      const currentUser = { email: email, img: img };
       const url = `https://fruits-warehouse-server.vercel.app/api/user/${email}`;
       console.log(currentUser);
       if (email) {

@@ -26,12 +26,13 @@ const Signup = () => {
   }
   
   if(token){
-    navigate("/inventory")
+    console.log("fhfj-gj",token);
   }
- const onSubmit = async (data) => {
-   await createUserWithEmailAndPassword(data.email, data.password);
-   await updateProfile({ displayName: data.name });
-   await sendEmailVerification();
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    await sendEmailVerification();
+    navigate("/inventory")
    toast.success("User Added and Please verify your email Address!!");
  };
   return (

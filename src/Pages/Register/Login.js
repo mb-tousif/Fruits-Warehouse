@@ -10,6 +10,7 @@ import GIcon from "../../assets/images/google-icon.svg";
 import { auth } from "../../firebase.init";
 import DataLoader from "../../SharedFile/DataLoader";
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from "react-icons/md";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const {
@@ -25,8 +26,14 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+
+  const [token] = useToken( googleUser);
   if (error || googleError) {
     return [toast.error("User not found, please Sign up"), navigate("/signup")];
+  }
+
+  if (token) {
+    console.log("fhfj-gj", token);
   }
 
   if (loading || googleLoading) {
