@@ -26,7 +26,7 @@ const SalesReport = () => {
                   </div>
                 </div>
                 <small className="block p-2 font-bold text-xs text-center group-hover:text-gray-50">
-                  Date: {date}
+                 {date}
                 </small>
                 <h1 className="text-3xl text-center sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-2 group-hover:text-gray-50">
                   92.34%
@@ -48,7 +48,7 @@ const SalesReport = () => {
                   </div>
                 </div>
                 <small className="block p-2 font-bold text-xs text-center group-hover:text-gray-50">
-                  FY: {current.getFullYear()}
+                  {current.getFullYear()} FY
                 </small>
                 <h1 className="text-3xl text-center sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-2 group-hover:text-gray-50">
                   $ 150M
@@ -70,10 +70,10 @@ const SalesReport = () => {
                   </div>
                 </div>
                 <small className="block p-2 font-bold text-xs text-center group-hover:text-gray-50">
-                  Month: {current.toLocaleString('default', { month: 'short' })} {current.getFullYear()} 
+                  {current.toLocaleString('default', { month: 'long' })} {current.getFullYear()} 
                 </small>
                 <h1 className="text-3xl text-center sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-2 group-hover:text-gray-50">
-                  $ 220k
+                  $ 22.5k
                 </h1>
                 <p className="m-2 text-center group-hover:text-gray-200">
                   {current.toLocaleString('default', { month: 'short' })} Expected Profit
@@ -92,7 +92,7 @@ const SalesReport = () => {
                   </div>
                 </div>
                 <small className="block p-2 font-bold text-xs text-center group-hover:text-gray-50">
-                  FY: {current.getFullYear()}
+                  {current.getFullYear()} FY
                 </small>
                 <h1 className="text-3xl text-center sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-2 group-hover:text-gray-50">
                   1.3K
