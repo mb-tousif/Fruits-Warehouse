@@ -1,0 +1,44 @@
+[
+    {
+      "img": "https://i.ibb.co/V3LK0Hs/user8.jpg",
+      "name": "Shofia Olivia",
+      "userEmail": "Olivia@hotmail.com",
+      "country": "British Columbia",
+      "review": "It was exactly what I was looking for. There service and delivery is excellent. Also their fruits quality is best with lowest price."
+    },
+    {
+      "img": "https://i.ibb.co/CwXvJmQ/male-2.jpg",
+      "name": "Wung Su",
+      "userEmail": "wungSu@gmail.com",
+      "country": "Japan",
+      "review": "Best fruits for the lowest price. Highly recommended."
+    },
+    {
+      "img": "https://i.ibb.co/TPjqf60/Sc.png",
+      "name": "Alex Thomus",
+      "userEmail": "alex321@gmail.com",
+      "country": "UK",
+      "review": "Excellent service with good quality fruits. Delivery is to fast and their fruits quality is very awesome"
+    },
+    {
+      "img": "https://i.ibb.co/Q8wbXtb/avatar.png",
+      "name": "Michelle N",
+      "userEmail": "michelleN@yahoo.com",
+      "country": "Germany",
+      "review": "In this taught time with low price, having best fruits. Fresh Fruits Warehouse really awesome"
+    },
+    {
+      "img": "https://i.ibb.co/p37f1PD/user3.jpg",
+      "name": "Sara Blakely",
+      "userEmail": "blakely@gmail.com",
+      "country": "Canada",
+      "review": "Affordable and Best fruits I ever had. Thanks to Fresh fruits warehouse"
+    },
+    {
+      "img": "https://i.ibb.co/gPRvhc6/user1.jpg",
+      "name": "Martha Stewart",
+      "userEmail": "stewart89@gmail.com",
+      "country": "India",
+      "review": "Very fresh fruits and testy. I am very much pleased with their service and delivery"
+    }
+]
