@@ -1,8 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useFruits from '../../Hooks/useFruits';
 
 const ManageInventory = () => {
-  const [fruits] = useFruits();
+  const [fruits, setFruits] = useFruits();
+  const navigate = useNavigate();
+  const handleDelete = (id) => {
+    const confirmYOu = window.confirm("are you confirm you want to delete");
+    if (confirmYOu) {
+      // console.log(id);
+      fetch(`https://fruits-warehouse-server.vercel.app/api/fruits/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = fruits.filter(
+            (fruit) => fruit._id !== id
+          );
+          setFruits(remaining);
+        });
+    }
+  };
     return (
       <div>
         <h1 className="text-gray-800 text-center m-2 text-3xl font-bold">
@@ -47,7 +66,7 @@ const ManageInventory = () => {
                 </td>
                 <td className="px-4 py-4">
                   <div className="flex-col lg:flex-row lg:space-x-2 md:text-left text-center items-center space-y-2 lg:space-y-0">
-                    <button className="items-center px-2 py-2 text-white bg-[#1c3a13] dark:bg-gray-500 rounded-md hover:bg-[#a58e0a] dark:hover:bg-gray-600 focus:outline-none">
+                    <button onClick={()=> navigate("/dashboard/addFruit")} className="items-center px-2 py-2 text-white bg-[#1c3a13] dark:bg-gray-500 rounded-md hover:bg-[#a58e0a] dark:hover:bg-gray-600 focus:outline-none">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4"
@@ -62,7 +81,7 @@ const ManageInventory = () => {
                         />
                       </svg>
                     </button>
-                    <button className="items-center px-2 py-2 text-white bg-red-500 dark:bg-gray-500 rounded-md hover:bg-red-800 dark:hover:bg-gray-600 focus:outline-none">
+                    <button onClick={()=>handleDelete(fruit._id)} className="items-center px-2 py-2 text-white bg-red-500 dark:bg-gray-500 rounded-md hover:bg-red-800 dark:hover:bg-gray-600 focus:outline-none">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4"
