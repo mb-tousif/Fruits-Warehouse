@@ -1,9 +1,16 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFruits from '../../Hooks/useFruits';
+import Pagination from './Pagination';
 
 const Inventory = () => {
   const [fruits] = useFruits();
+   const [currentPage, setCurrentPage] = useState(1);
+   const [postsPerPage] = useState(6);
+   const lastPostIndex = currentPage * postsPerPage;
+   const firstPostIndex = lastPostIndex - postsPerPage;
+   const currentFruits = fruits.slice(firstPostIndex, lastPostIndex);
   const navigate = useNavigate();
   const handleUpdate = (id) => {
     navigate(`/fruit/${id}`);
@@ -17,7 +24,7 @@ const Inventory = () => {
         <span className="font-medium text-[#f2290f]"> Fruits</span>
       </p>
       <div className="grid gap-2 mx-auto my-auto md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
-        {fruits.map((fruit) => (
+        {currentFruits.map((fruit) => (
           <div
             className="card m-2 w-auto bg-[rgba(0 0 0 .4)] shadow-xl image-full"
             fruit={fruit}
@@ -44,6 +51,12 @@ const Inventory = () => {
           </div>
         ))}
       </div>
+      <Pagination
+        totalPosts={fruits.length}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </div>
   );
 };
