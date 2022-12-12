@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase.init";
 
 const Navbar = () => {
-  const avatarPic = "https://pbs.twimg.com/profile_images/1467997254929854470/mDYbXoVl_400x400.jpg"
   const [user] = useAuthState(auth);
   const handleSignOut = () => {
     signOut(auth);
@@ -67,17 +66,6 @@ const Navbar = () => {
                 Login
               </Link>
             )}
-            {user && (
-              <div className="avatar">
-                <div className="w-12 rounded-full">
-                  {user.photoURL ? (
-                    <img src={user.photoURL} alt="Avatar" />
-                  ) : (
-                    <img src={avatarPic} alt="Avatar" />
-                  )}
-                </div>
-              </div>
-            )}
           </ul>
         </div>
         <div className="flex my-auto">
@@ -117,17 +105,6 @@ const Navbar = () => {
             <Link className="ml-4 md:text-lg font-bold" to="/login">
               Login
             </Link>
-          )}
-          {user && (
-            <div className="avatar ml-4 flex">
-              <div className="w-12 rounded-full flex">
-                {user.photoURL ? (
-                  <img src={user.photoURL} alt="Avatar" />
-                ) : (
-                  <img src={avatarPic} alt="Avatar" />
-                )}
-              </div>
-            </div>
           )}
         </ul>
       </div>

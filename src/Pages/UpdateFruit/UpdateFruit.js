@@ -59,7 +59,7 @@ const UpdateFruit = () => {
     console.log("input ", number);
     const newQuantity = Number(quantity) + Number(number);
     const data = { quantity: newQuantity };
-    console.log(data);
+    // console.log(data);
     //* send data to the server
     fetch(url, {
       method: "PUT",
@@ -70,7 +70,7 @@ const UpdateFruit = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
+        // console.log("success", data);
         // e.target.reset();
         //* load updated data
         setLoader(true);

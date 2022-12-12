@@ -12,17 +12,42 @@ const AddFruit = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    const url = "https://fruits-warehouse-server.vercel.app/api/fruits";
-    fetch(url, {
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const imgbbUrl = `https://api.imgbb.com/1/upload?key=ae1d7490ab9268cd599c51b094ff6570`;
+    fetch(imgbbUrl, {
       method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(data),
+      body: formData,
     })
       .then((res) => res.json())
-      .then((fruit) => {
-        console.log(fruit);
-        if (fruit.success) {
-          return toast.success("Review Added!!");
+      .then((result) => {
+        if (result.success) {
+          const photoUrl = result.data.url;
+          const fruitData = {
+            name: data.name,
+            price: data.price,
+            description: data.comment,
+            quantity: data.quantity,
+            sold: data.sold,
+            img: photoUrl,
+            supplier: data.supplier,
+            userEmail: data.email,
+          };
+          console.log(fruitData);
+          const url = "https://fruits-warehouse-server.vercel.app/api/fruit";
+          fetch(url, {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(fruitData),
+          })
+            .then((res) => res.json())
+            .then((fruit) => {
+              console.log(fruit);
+              if (fruit.success) {
+                return toast.success("Fruit Added!!");
+              }
+            });
         }
       });
   };
