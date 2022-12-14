@@ -1,0 +1,24 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+/* Scrollbar Modification */
+::-webkit-scrollbar {
+  width: 3vh;
+}
+
+::-webkit-scrollbar-track {
+  width: 3vh;
+  height: 40vmax;
+  background-color: #678f02;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to top, #50cc7f 0%, #f5d100 100%);
+  border-bottom-left-radius: 80%;
+  border-bottom-right-radius: 80%;
+}

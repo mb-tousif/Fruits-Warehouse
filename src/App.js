@@ -22,6 +22,7 @@ import ManageInventory from "./Pages/Dashboard/ManageInventory";
 import Reviews from "./Pages/Dashboard/Reviews";
 import PendingTasks from "./Pages/Dashboard/PendingTasks";
 import AllUsers from "./Pages/Dashboard/AllUsers";
+import "./App.css";
 
 function App() {
   const [loader, setLoader] = useState(false);

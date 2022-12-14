@@ -8,7 +8,7 @@ const useToken = (user) => {
       const img = user?.user?.photoURL
       const currentUser = { email: email, img: img };
       const url = `https://fruits-warehouse-server.vercel.app/api/user/${email}`;
-      console.log(currentUser);
+      // console.log(currentUser);
       if (email) {
         fetch(url, {
           method: "PUT",
