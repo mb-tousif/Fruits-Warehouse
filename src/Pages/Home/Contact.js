@@ -1,21 +1,16 @@
-import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify";
+import React from "react";
+import { useForm } from "@formspree/react";
 
 const Contact = () => {
-  const form = useRef();
+const [state, handleSubmit] = useForm("mgedqyov");
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_gfkhu9o",
-        "template_zo5adal",
-        form.current,
-        "NMv1eidplMqNu-ent"
-      )
-      .then(toast.success("Your mail sent"))
-  };
+if (state.succeeded) {
+  return (
+    <p className="text-xl font-semiBold text-center text-primary m-3">
+      Thanks for your Feedback!
+    </p>
+  );
+}
 
   return (
     <div className="container px-5 py-4 mx-auto">
@@ -28,7 +23,7 @@ const Contact = () => {
         </p>
       </div>
       <div className="lg:w-1/2 md:w-2/3 mx-auto">
-        <form ref={form} onSubmit={sendEmail}>
+        <form onSubmit={handleSubmit}>
           <div className="flex flex-wrap -m-2">
             <div className="p-2 w-1/2">
               <div className="relative">
@@ -78,7 +73,10 @@ const Contact = () => {
               </div>
             </div>
             <div className="p-2 w-full">
-              <button className="flex mx-auto bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 border-0 py-2 px-8 transition ease-in-out focus:outline-none rounded text-lg">
+              <button
+                className="flex mx-auto bg-[#1c3a13] hover:bg-[#678f02] text-gray-50 border-0 py-2 px-8 transition ease-in-out focus:outline-none rounded text-lg"
+                disabled={state.submitting}
+              >
                 Button
               </button>
             </div>
