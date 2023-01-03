@@ -33,7 +33,7 @@ const Signup = () => {
     await updateProfile({ displayName: data.name });
     await sendEmailVerification();
     navigate("/inventory")
-   toast.success("User Added and Please verify your email Address!!");
+    toast.success("User Added and Please verify your email Address!");
  };
   return (
     <div className="mt-4 mb-4 block p-6 mx-auto my-auto rounded-lg shadow-lg bg-[#13a94c] max-w-md">

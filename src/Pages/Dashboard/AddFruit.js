@@ -140,7 +140,7 @@ const AddFruit = () => {
               type="file"
               {...register("image", { required: true })}
               name="image"
-              className="form-control block w-full px-3 py-1.5 text-center font-normal text-gray-700 bg-[#e8d779] bg-clip-padding rounded-xl transition ease-in-out m-0 focus:outline-none"
+              className="form-control file-input file-input-bordered bg-[#e8d779] file-input-success w-full"
               placeholder="Upload Fruits Image"
             />
             {errors.image && (

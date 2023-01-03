@@ -29,6 +29,7 @@ const Inventory = () => {
             className="card m-2 w-auto bg-[rgba(0 0 0 .4)] shadow-xl image-full"
             fruit={fruit}
             key={fruit._id}
+            data-aos="flip-down"
           >
             <figure>
               <img src={fruit.img} alt="Fruits" />
@@ -42,6 +43,8 @@ const Inventory = () => {
               <div className="card-actions justify-end">
                 <button
                   onClick={() => handleUpdate(fruit._id)}
+                  data-aos-delay="1000"
+                  data-aos="flip-up"
                   className="w-full px-6 py-2.5 hover:bg-[#1c3a13] bg-[#06582096] rounded-2xl"
                 >
                   Update Now

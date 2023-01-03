@@ -12,8 +12,7 @@ const BusinessStatus = () => {
             Thousands of Client Trust Us
           </h1>
           <p className="text-center p-2 text-xl lg:text-3xl mb-10 lg:mb-24 font-bold">
-            <span className="text-white">Country's Trusted Ltd</span>
-            <span className="text-red-600 ml-2">Fresh Fruits Warehouse</span>
+            <span className="text-white">Country's Trusted <span className="text-red-600 ml-2">Fresh Fruits Warehouse</span> Ltd</span>
           </p>
         </div>
 

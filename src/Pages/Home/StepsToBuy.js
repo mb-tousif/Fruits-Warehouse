@@ -11,7 +11,7 @@ const StepsToBuy = () => {
         </h1>
         <div className="lg:-mx-6 lg:flex lg:items-center">
           <figure className="md:ml-4">
-            <img src={step} alt="Album" />
+            <img src={step} alt="Album" data-aos="flip-right" />
           </figure>
           <div className="md:w-1/2 flex justify-center ">
             <ul className="steps">

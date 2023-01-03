@@ -32,14 +32,14 @@ const Dashboard = () => {
                 <div className="space-y-3">
                   <img
                     src={user?.photoURL || avatarImg}
-                    alt="Avatar user"
+                    alt="Avatar user" data-aos="fade-down-left"
                     className="w-10 md:w-16 rounded-full mx-auto"
                   />
                   <div>
                     <h2 className="font-medium text-sm md:text-sm text-center text-gray-800">
                       {user.displayName}
                     </h2>
-                    <p className="text-sm text-gray-800 text-center">Admin</p>
+                    <p className="text-sm text-gray-800 text-center">{user.role} || User</p>
                   </div>
                 </div>
                 <div className="divider"></div>

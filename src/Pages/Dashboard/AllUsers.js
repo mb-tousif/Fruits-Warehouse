@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import useUser from "../../Hooks/useUser";
 import avatarPic from "../../assets/images/avatar.png";
+import DataLoader from "../../SharedFile/DataLoader";
+import { toast } from "react-toastify";
 
 const AllUsers = () => {
   const [userDetail] = useUser();
+  const [loader, setLoader] = useState(false);
+  
+  const makeAdmin = (id) => {
+    const url = `http://localhost:4000/api/updateUser/:${id}`;
+    setLoader(true);
+    const data = { role: "Admin" };
+    console.log(data);
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Make admin successful.");
+          setLoader(false);
+        }else{
+          toast.error(data)
+        }
+      });
+
+  };
+
+  if(loader === true){
+    return <DataLoader/>
+  }
 
   return (
     <section className="text-gray-600 body-font">
@@ -47,6 +78,15 @@ const AllUsers = () => {
                   </td>
                   <td className="px-4 py-3">{userData.email}</td>
                   <td className="px-4 py-3">{userData.role}</td>
+                  {userData.role === "User" ? (
+                    <td className="px-4 py-3">
+                      <button onClick={()=>makeAdmin()} className="badge border-none p-2.5 bg-green-500">Make Admin</button>
+                    </td>
+                  ) : (
+                    <td className="px-4 py-3">
+                      <button className="badge border-none p-2.5 bg-[#808000]">Make User</button>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>

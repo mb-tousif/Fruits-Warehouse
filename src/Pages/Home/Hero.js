@@ -12,9 +12,9 @@ const Hero = () => {
       }}
     >
       <div className="sm:grid sm:grid-cols-2">
-        <img src={backgroundImg} alt="Album" className="sm:h-[400px] mx-auto mt-4" />
+        <img data-aos="fade-down" src={backgroundImg} alt="Album" className="sm:h-[400px] mx-auto mt-4" />
         <div className="mx-auto my-auto">
-          <h2 className="sm:text-2xl text-xl font-bold text-center sm:p-4 p-2">Welcome to Fresh Fruits Warehouse</h2>
+          <h2 data-aos="fade-up" className="sm:text-2xl text-xl font-bold text-center sm:p-4 p-2">Welcome to Fresh Fruits Warehouse</h2>
           <p className="text-justify sm:p-4 p-2">
             Fruits are the means by which angiosperms disseminate seeds. Order
             fruit from Fresh Fruits Warehouse for delivery as quickly as today!
@@ -25,7 +25,7 @@ const Hero = () => {
       </div>
       <div className="mx-auto pb-4 sm:pb-8">
         <button
-          onClick={() => navigate("/inventory")}
+          onClick={() => navigate("/inventory")} data-aos="fade-down-right"
           className="w-full sm:w-[200px] uppercase px-6 py-2.5 transition ease-in-out text-sm font-medium rounded-lg lg:w-auto lg:mx-4 bg-[#1c3a13] hover:bg-[#678f02] text-gray-50"
         >
           Order Now

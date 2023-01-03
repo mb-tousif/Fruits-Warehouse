@@ -30,7 +30,7 @@ const Subscriber = () => {
           </div>
         </div>
         <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-          <img className="w-full h-full max-w-md" src={hero} alt="#" />
+          <img data-aos="flip-left" className="w-full h-full max-w-md" src={hero} alt="#" />
         </div>
       </div>
     </div>
