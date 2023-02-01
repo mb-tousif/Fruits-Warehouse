@@ -19,22 +19,3 @@ export const bannerImage = [
     img: "https://i.ibb.co/yBWLJ8D/banner-4.png",
   },
 ];
-
-export const navLinks = [
-  {
-    id: "home",
-    title: "Home",
-  },
-  {
-    id: "features",
-    title: "Features",
-  },
-  {
-    id: "product",
-    title: "Product",
-  },
-  {
-    id: "clients",
-    title: "Clients",
-  },
-];

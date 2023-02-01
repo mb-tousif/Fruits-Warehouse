@@ -9,7 +9,7 @@ const AllUsers = () => {
   const [loader, setLoader] = useState(false);
   
   const makeAdmin = (id) => {
-    const url = `http://localhost:4000/api/updateUser/:${id}`;
+    const url = `https://fruits-warehouse-server.vercel.app/api/updateUser/${id}`;
     setLoader(true);
     const data = { role: "Admin" };
     console.log(data);
@@ -24,6 +24,30 @@ const AllUsers = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Make admin successful.");
+          setLoader(false);
+        }else{
+          toast.error(data)
+        }
+      });
+
+  };
+
+  const makeUser = (id) => {
+    const url = `https://fruits-warehouse-server.vercel.app/api/updateUser/${id}`;
+    setLoader(true);
+    const data = { role: "User" };
+    console.log(data);
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Make User successful.");
           setLoader(false);
         }else{
           toast.error(data)
@@ -80,11 +104,11 @@ const AllUsers = () => {
                   <td className="px-4 py-3">{userData.role}</td>
                   {userData.role === "User" ? (
                     <td className="px-4 py-3">
-                      <button onClick={()=>makeAdmin()} className="badge border-none p-2.5 bg-green-500">Make Admin</button>
+                      <button onClick={()=>makeAdmin(userData._id)} className="badge border-none p-2.5 bg-green-500">Make Admin</button>
                     </td>
                   ) : (
                     <td className="px-4 py-3">
-                      <button className="badge border-none p-2.5 bg-[#808000]">Make User</button>
+                      <button onClick={()=>makeUser(userData._id)} className="badge border-none p-2.5 bg-[#808000]">Make User</button>
                     </td>
                   )}
                 </tr>
