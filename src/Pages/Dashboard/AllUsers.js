@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import useUser from "../../Hooks/useUser";
 import avatarPic from "../../assets/images/avatar.png";
 import DataLoader from "../../SharedFile/DataLoader";
 import { toast } from "react-toastify";
+import { useQuery } from "@tanstack/react-query";
 
 const AllUsers = () => {
-  const [userDetail] = useUser();
+  const {data: users = [], refetch} = useQuery({
+    queryKey: ['users'],
+    queryFn: async() =>{
+        const res = await fetch('https://fruits-warehouse-server.vercel.app/api/users');
+        const data = await res.json();
+        return data;
+    }
+});
   const [loader, setLoader] = useState(false);
   
   const makeAdmin = (id) => {
@@ -24,6 +31,7 @@ const AllUsers = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Make admin successful.");
+          refetch();
           setLoader(false);
         }else{
           toast.error(data)
@@ -48,6 +56,7 @@ const AllUsers = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           toast.success("Make User successful.");
+          refetch();
           setLoader(false);
         }else{
           toast.error(data)
@@ -87,28 +96,28 @@ const AllUsers = () => {
               </tr>
             </thead>
             <tbody>
-              {userDetail.map((userData) => (
-                <tr key={userData._id} className="border border-gray-200">
+              {users.map((users) => (
+                <tr key={users._id} className="border border-gray-200">
                   <td className="px-4 py-3">
                     <div className="avatar">
                       <div className="w-12 rounded-full">
-                        {!userData?.img ? (
+                        {!users?.img ? (
                           <img src={avatarPic} alt="Avatar" />
                         ) : (
-                          <img src={userData?.img} alt="Avatar" />
+                          <img src={users?.img} alt="Avatar" />
                         )}
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3">{userData.email}</td>
-                  <td className="px-4 py-3">{userData.role}</td>
-                  {userData.role === "User" ? (
+                  <td className="px-4 py-3">{users.email}</td>
+                  <td className="px-4 py-3">{users.role}</td>
+                  {users.role === "User" ? (
                     <td className="px-4 py-3">
-                      <button onClick={()=>makeAdmin(userData._id)} className="badge border-none p-2.5 bg-green-500">Make Admin</button>
+                      <button onClick={()=>makeAdmin(users._id)} className="badge border-none p-2.5 bg-green-500">Make Admin</button>
                     </td>
                   ) : (
                     <td className="px-4 py-3">
-                      <button onClick={()=>makeUser(userData._id)} className="badge border-none p-2.5 bg-[#808000]">Make User</button>
+                      <button onClick={()=>makeUser(users._id)} className="badge border-none p-2.5 bg-[#808000]">Make User</button>
                     </td>
                   )}
                 </tr>

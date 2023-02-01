@@ -68,15 +68,13 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <div className="flex my-auto">
+        <div className="mx-auto flex my-auto">
           <h2 className="md:p-2 ml-2 md:text-xl font-bold">
             Fresh Fruits Warehouse
           </h2>
-        </div>
-        <div className="navbar-end mx-auto my-auto">
-          <label tabIndex="1" htmlFor="dashboardSideBar" className="btn btn-ghost drawer-button lg:hidden">
+          <div className="flex justify-end lg:hidden"><label tabIndex="1" htmlFor="dashboardSideBar" className="btn btn-ghost drawer-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-          </label>
+          </label></div>
         </div>
       </div>
       <div className="navbar-center mx-auto hidden lg:flex">

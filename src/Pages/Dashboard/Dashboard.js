@@ -39,7 +39,6 @@ const Dashboard = () => {
                     <h2 className="font-medium text-sm md:text-sm text-center text-gray-800">
                       {user.displayName}
                     </h2>
-                    <p className="text-sm text-gray-800 text-center">{user.role} || User</p>
                   </div>
                 </div>
                 <div className="divider"></div>
