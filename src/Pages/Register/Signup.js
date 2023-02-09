@@ -15,24 +15,21 @@ const Signup = () => {
  const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
  const [updateProfile, updating] = useUpdateProfile(auth);
  const [showPassword, setShowPassword] = useState(false);
+ const [createUserWithEmailAndPassword, user, loading] =useCreateUserWithEmailAndPassword(auth);
  const navigate = useNavigate();
- const [createUserWithEmailAndPassword, user, loading] =
-   useCreateUserWithEmailAndPassword(auth);
 
-  const [token] = useToken(user || googleUser)
-  
-  if (loading || updating || sending || googleLoading) {
+  const [token, loadingData] = useToken(user || googleUser)
+  if (loading || loadingData || updating || sending || googleLoading) {
     return <DataLoader />
   }
   
   if(token){
-    console.log("fhfj-gj",token);
+    navigate("/inventory")
   }
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     await sendEmailVerification();
-    navigate("/inventory")
     toast.success("User Added and Please verify your email Address!");
  };
   return (
